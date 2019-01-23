@@ -1,6 +1,6 @@
 import React from 'react'
 
-
+//Exportando dois Componentes
 const Primeiro = props =>(
     <h1>Primeiro Componente</h1>
 )
