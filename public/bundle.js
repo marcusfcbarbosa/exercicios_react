@@ -64,7 +64,7 @@
 	  'h1',
 	  null,
 	  ' ',
-	  _react2.default.createElement(_componente2.default, null),
+	  _react2.default.createElement(_componente2.default, { value: 'show!', teste: 'uae' }),
 	  ' '
 	), document.getElementById('app'));
 
@@ -21466,8 +21466,15 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	exports.Segundo = exports.Primeiro = undefined;
 
-	exports.default = function () {
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Primeiro = function Primeiro(props) {
 	    return _react2.default.createElement(
 	        'h1',
 	        null,
@@ -21475,11 +21482,16 @@
 	    );
 	};
 
-	var _react = __webpack_require__(1);
+	var Segundo = function Segundo(props) {
+	    return _react2.default.createElement(
+	        'h1',
+	        null,
+	        'Segundo Componente'
+	    );
+	};
 
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	exports.Primeiro = Primeiro;
+	exports.Segundo = Segundo;
 
 /***/ }
 /******/ ]);

@@ -1,8 +1,13 @@
 import React from 'react'
 
-//Na arow function o return é implicito
 
-export default  (props) =>  (
-    <h1>{props.value} {props.teste}</h1>
-    
+const Primeiro = props =>(
+    <h1>Primeiro Componente</h1>
 )
+
+const Segundo = props =>(
+    <h1>Segundo Componente</h1>
+)
+
+
+export {Primeiro, Segundo}
