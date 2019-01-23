@@ -1,7 +1,7 @@
 import React from 'react'
 
 //Exportando dois Componentes
-export const Primeiro = props =>(
+export default   props =>( //Esse sera o que sera exportado por padrao
     <h1>Primeiro Componente</h1>
 )
 
@@ -10,4 +10,3 @@ export const Segundo = props =>(
 )
 
 
-//export {Primeiro, Segundo}
