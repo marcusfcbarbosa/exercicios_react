@@ -1,13 +1,13 @@
 import React from 'react'
 
 //Exportando dois Componentes
-const Primeiro = props =>(
+export const Primeiro = props =>(
     <h1>Primeiro Componente</h1>
 )
 
-const Segundo = props =>(
+export const Segundo = props =>(
     <h1>Segundo Componente</h1>
 )
 
 
-export {Primeiro, Segundo}
+//export {Primeiro, Segundo}
