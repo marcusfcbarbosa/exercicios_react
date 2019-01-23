@@ -12,6 +12,9 @@ module.exports ={
         port:8080,
         contentBase: './public',
     },
+    resolve:{
+        extensions: ['','.js','.jsx']//dessa forma eu consigo dar um ( import from ) sem explicitar a extensão do arquivo
+    },
     module:{
         loaders:[{
             test: /.jsx?$/, //observe a extensao dos  arquivos react .jsx

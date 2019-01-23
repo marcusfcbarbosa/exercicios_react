@@ -54,12 +54,18 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
+	var _componente = __webpack_require__(178);
+
+	var _componente2 = _interopRequireDefault(_componente);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	_reactDom2.default.render(_react2.default.createElement(
 	  'h1',
 	  null,
-	  ' Ol\xE1 React'
+	  ' ',
+	  _react2.default.createElement(_componente2.default, null),
+	  ' '
 	), document.getElementById('app'));
 
 /***/ },
@@ -21450,6 +21456,30 @@
 
 	module.exports = ReactDOMInvalidARIAHook;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 178 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	exports.default = function () {
+	    return _react2.default.createElement(
+	        'h1',
+	        null,
+	        'Primeiro Componente'
+	    );
+	};
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }
 /******/ ]);
