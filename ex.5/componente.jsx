@@ -8,5 +8,3 @@ export default   props =>( //Esse sera o que sera exportado por padrao
 export const Segundo = props =>(
     <h1>Segundo Componente</h1>
 )
-
-

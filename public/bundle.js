@@ -54,18 +54,16 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _componente = __webpack_require__(178);
+	var _silvaFamily = __webpack_require__(178);
 
-	var _componente2 = _interopRequireDefault(_componente);
+	var _silvaFamily2 = _interopRequireDefault(_silvaFamily);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	_reactDom2.default.render(_react2.default.createElement(
-	  'h1',
-	  null,
-	  ' ',
-	  _react2.default.createElement(_componente2.default, { value: 'show!', teste: 'uae' }),
-	  ' '
+	     'div',
+	     null,
+	     _react2.default.createElement(_silvaFamily2.default, null)
 	), document.getElementById('app'));
 
 /***/ },
@@ -21466,7 +21464,37 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.Segundo = exports.Primeiro = undefined;
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _member = __webpack_require__(179);
+
+	var _member2 = _interopRequireDefault(_member);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = function (props) {
+	    return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(_member2.default, { name: 'Joao', lastName: 'Silva' }),
+	        _react2.default.createElement(_member2.default, { name: 'Maria', lastName: 'Silva' }),
+	        _react2.default.createElement(_member2.default, { name: 'Jose', lastName: 'Silva' }),
+	        _react2.default.createElement(_member2.default, { name: 'Pedro', lastName: 'Silva' })
+	    );
+	};
+
+/***/ },
+/* 179 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
 
 	var _react = __webpack_require__(1);
 
@@ -21474,24 +21502,21 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var Primeiro = function Primeiro(props) {
+	exports.default = function (props) {
 	    return _react2.default.createElement(
-	        'h1',
+	        'div',
 	        null,
-	        'Primeiro Componente'
+	        ' ',
+	        props.name,
+	        ' ',
+	        _react2.default.createElement(
+	            'strong',
+	            null,
+	            props.lastName
+	        ),
+	        ' '
 	    );
 	};
-
-	var Segundo = function Segundo(props) {
-	    return _react2.default.createElement(
-	        'h1',
-	        null,
-	        'Segundo Componente'
-	    );
-	};
-
-	exports.Primeiro = Primeiro;
-	exports.Segundo = Segundo;
 
 /***/ }
 /******/ ]);
