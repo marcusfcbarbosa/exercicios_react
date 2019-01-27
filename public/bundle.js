@@ -54,24 +54,15 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _family = __webpack_require__(178);
+	var _classComponente = __webpack_require__(178);
 
-	var _family2 = _interopRequireDefault(_family);
-
-	var _member = __webpack_require__(180);
-
-	var _member2 = _interopRequireDefault(_member);
+	var _classComponente2 = _interopRequireDefault(_classComponente);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	//componente por classe com estado
 	//passando a propriedade LastName para as filhas dentro de Family
-	_reactDom2.default.render(_react2.default.createElement(
-	    _family2.default,
-	    { lastName: 'Silva' },
-	    _react2.default.createElement(_member2.default, { name: 'Guilherme' }),
-	    _react2.default.createElement(_member2.default, { name: 'Rafael' }),
-	    _react2.default.createElement(_member2.default, { name: 'Julia' })
-	), document.getElementById('app'));
+	_reactDom2.default.render(_react2.default.createElement(_classComponente2.default, { label: 'Contador', initialValue: 10 }), document.getElementById('app'));
 
 /***/ },
 /* 1 */
@@ -21472,39 +21463,7 @@
 	    value: true
 	});
 
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactUtils = __webpack_require__(179);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = function (props) {
-	    return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	            'h1',
-	            null,
-	            'Familia'
-	        ),
-	        (0, _reactUtils.childrenWhitProps)(props.children, props)
-	    );
-	};
-
-/***/ },
-/* 179 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.childrenWhitProps = undefined;
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -21512,47 +21471,73 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function childrenWhitProps(children, props) {
-	    return _react2.default.Children.map(props.children, function (child) {
-	        return _react2.default.cloneElement(child, _extends({}, props));
-	    });
-	}
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	exports.childrenWhitProps = childrenWhitProps;
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-/***/ },
-/* 180 */
-/***/ function(module, exports, __webpack_require__) {
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	'use strict';
+	//componentes por classe com estado
+	var ClassComponent = function (_Component) {
+	    _inherits(ClassComponent, _Component);
 
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
+	    function ClassComponent(props) {
+	        _classCallCheck(this, ClassComponent);
 
-	var _react = __webpack_require__(1);
+	        var _this = _possibleConstructorReturn(this, (ClassComponent.__proto__ || Object.getPrototypeOf(ClassComponent)).call(this, props));
 
-	var _react2 = _interopRequireDefault(_react);
+	        _this.state = { value: props.initialValue //inicializando o estado do componente
+	        };return _this;
+	    }
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	    _createClass(ClassComponent, [{
+	        key: 'sum',
+	        value: function sum(delta) {
+	            this.setState({ value: this.state.value + delta }); //evoluindo o estado
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _this2 = this;
 
-	exports.default = function (props) {
-	    return _react2.default.createElement(
-	        'div',
-	        null,
-	        ' ',
-	        props.name,
-	        ' ',
-	        _react2.default.createElement(
-	            'strong',
-	            null,
-	            props.lastName
-	        ),
-	        ' '
-	    );
-	};
+	            //this.props.value++ //isso nao vai funcionar pois othis.props é somente leitura
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    'h1',
+	                    null,
+	                    '   ',
+	                    this.props.label
+	                ),
+	                _react2.default.createElement(
+	                    'h1',
+	                    null,
+	                    '   ',
+	                    this.state.value
+	                ),
+	                _react2.default.createElement(
+	                    'button',
+	                    { onClick: function onClick() {
+	                            return _this2.sum(-1);
+	                        } },
+	                    'Dec '
+	                ),
+	                _react2.default.createElement(
+	                    'button',
+	                    { onClick: function onClick() {
+	                            return _this2.sum(1);
+	                        } },
+	                    'Inc '
+	                )
+	            );
+	        }
+	    }]);
 
-	//essas propriedades são transmitidas para os filhos do family, através do children
+	    return ClassComponent;
+	}(_react.Component);
+
+	exports.default = ClassComponent;
 
 /***/ }
 /******/ ]);
