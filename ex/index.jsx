@@ -1,9 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import ClassComponente from './classComponente'
+import Field from './field'
 
-//componente por classe com estado
-//passando a propriedade LastName para as filhas dentro de Family
+
+//Componente controlados e não controlados
+
 ReactDOM.render(
-    <ClassComponente label="Contador" initialValue={10} />
+    <Field initialValue='Teste' />
 , document.getElementById('app'))
