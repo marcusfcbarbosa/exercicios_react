@@ -1,9 +1,10 @@
 import React from 'react'
 
-//quando se definir o seu componente family, em algum lugar,...tudo que vc passar dentro dele sera passado para esse props.children
 
+//usando dessa forma {React.cloneElement(props.children, props)}  ele consegue , por meio de herança repassar as propriedades que estao diretamente referencias em family
 export default props => (
     <div>
-        {props.children}
+        <h1>Familia</h1>
+            {React.cloneElement(props.children, props)}  
     </div>
 )
