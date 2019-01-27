@@ -1,11 +1,15 @@
 import React from 'react'
 
-//usando o spread para clonar o objeto
-//usando dessa forma {React.cloneElement(props.children, { ...props})}  
-//Só funciona para um unico elemento, mas não para varios elementos
+//fazer um mapeamento que pega os elementos do filho e retorna como propriedade da familia 
+// {React.children.map(props.children, 
+//     child => React.cloneElement(child,{ ...props})
+//     )}
 export default props => (
     <div>
         <h1>Familia</h1>
-            {React.cloneElement(props.children, { ...props})}  
+            {React.Children.map(
+                props.children,
+                child => React.cloneElement(child,{...props})
+            )}
     </div>
 )

@@ -21480,8 +21480,10 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	//usando o spread para clonar o objeto
-	//usando dessa forma {React.cloneElement(props.children, { ...props})}  
+	//fazer um mapeamento que pega os elementos do filho e retorna como propriedade da familia 
+	// {React.children.map(props.children, 
+	//     child => React.cloneElement(child,{ ...props})
+	//     )}
 	exports.default = function (props) {
 	    return _react2.default.createElement(
 	        'div',
@@ -21491,7 +21493,9 @@
 	            null,
 	            'Familia'
 	        ),
-	        _react2.default.cloneElement(props.children, _extends({}, props))
+	        _react2.default.children.map(props.children, function (child) {
+	            return _react2.default.cloneElement(child, _extends({}, props));
+	        })
 	    );
 	};
 
