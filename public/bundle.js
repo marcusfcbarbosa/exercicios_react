@@ -54,16 +54,23 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _silvaFamily = __webpack_require__(178);
+	var _family = __webpack_require__(178);
 
-	var _silvaFamily2 = _interopRequireDefault(_silvaFamily);
+	var _family2 = _interopRequireDefault(_family);
+
+	var _member = __webpack_require__(179);
+
+	var _member2 = _interopRequireDefault(_member);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	//passando a propriedade LastName para as filhas dentro de Family
 	_reactDom2.default.render(_react2.default.createElement(
-	     'div',
-	     null,
-	     _react2.default.createElement(_silvaFamily2.default, null)
+	    _family2.default,
+	    { lastName: 'Silva' },
+	    _react2.default.createElement(_member2.default, { name: 'Guilherme' }),
+	    _react2.default.createElement(_member2.default, { name: 'Rafael' }),
+	    _react2.default.createElement(_member2.default, { name: 'Julia' })
 	), document.getElementById('app'));
 
 /***/ },
@@ -21465,24 +21472,26 @@
 	    value: true
 	});
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _member = __webpack_require__(179);
-
-	var _member2 = _interopRequireDefault(_member);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	//usando o spread para clonar o objeto
+	//usando dessa forma {React.cloneElement(props.children, { ...props})}  
 	exports.default = function (props) {
 	    return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_member2.default, { name: 'Joao', lastName: 'Silva' }),
-	        _react2.default.createElement(_member2.default, { name: 'Maria', lastName: 'Silva' }),
-	        _react2.default.createElement(_member2.default, { name: 'Jose', lastName: 'Silva' }),
-	        _react2.default.createElement(_member2.default, { name: 'Pedro', lastName: 'Silva' })
+	        _react2.default.createElement(
+	            'h1',
+	            null,
+	            'Familia'
+	        ),
+	        _react2.default.cloneElement(props.children, _extends({}, props))
 	    );
 	};
 
@@ -21517,6 +21526,8 @@
 	        ' '
 	    );
 	};
+
+	//essas propriedades são transmitidas para os filhos do family, através do children
 
 /***/ }
 /******/ ]);

@@ -21,9 +21,9 @@ module.exports ={
             loader:'babel-loader',//para poder usar o import
             exclude:/node_modules/,
             query:{
-                presets:['es2015','react']
+                presets:['es2015','react'],
+                plugins: ["transform-object-rest-spread"] //esse plugin é usado para obter o operador Spread ( ... ) usado para clonar objetos
             }
-
         }]
     }
 }
