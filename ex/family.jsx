@@ -1,15 +1,10 @@
 import React from 'react'
+import { childrenWhitProps }  from '../utils/reactUtils'
 
-//fazer um mapeamento que pega os elementos do filho e retorna como propriedade da familia 
-// {React.children.map(props.children, 
-//     child => React.cloneElement(child,{ ...props})
-//     )}
+
 export default props => (
     <div>
         <h1>Familia</h1>
-            {React.Children.map(
-                props.children,
-                child => React.cloneElement(child,{...props})
-            )}
+            { childrenWhitProps(props.children , props) }
     </div>
 )

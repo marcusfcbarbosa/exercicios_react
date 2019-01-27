@@ -58,7 +58,7 @@
 
 	var _family2 = _interopRequireDefault(_family);
 
-	var _member = __webpack_require__(179);
+	var _member = __webpack_require__(180);
 
 	var _member2 = _interopRequireDefault(_member);
 
@@ -21472,18 +21472,14 @@
 	    value: true
 	});
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactUtils = __webpack_require__(179);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	//fazer um mapeamento que pega os elementos do filho e retorna como propriedade da familia 
-	// {React.children.map(props.children, 
-	//     child => React.cloneElement(child,{ ...props})
-	//     )}
 	exports.default = function (props) {
 	    return _react2.default.createElement(
 	        'div',
@@ -21493,14 +21489,39 @@
 	            null,
 	            'Familia'
 	        ),
-	        _react2.default.children.map(props.children, function (child) {
-	            return _react2.default.cloneElement(child, _extends({}, props));
-	        })
+	        (0, _reactUtils.childrenWhitProps)(props.children, props)
 	    );
 	};
 
 /***/ },
 /* 179 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.childrenWhitProps = undefined;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function childrenWhitProps(children, props) {
+	    return _react2.default.Children.map(props.children, function (child) {
+	        return _react2.default.cloneElement(child, _extends({}, props));
+	    });
+	}
+
+	exports.childrenWhitProps = childrenWhitProps;
+
+/***/ },
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
