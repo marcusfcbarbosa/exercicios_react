@@ -1,29 +1,24 @@
 import React, {Component}  from 'react'
+import { connect } from 'react-redux'//usado para conectar react com redux
 
 
 class Field extends Component {
-
-    constructor(props){
-        super(props)        
-        this.state ={ valorEstado: props.initialValue }
-        this.handleChange = this.handleChange.bind(this)
-    }
-
-    //sempre que digitar alguma coisa no campo, esse evento estara responavewl por ele
-    //target do event seria o input
-    //<input onChange={this.handleChange} value={this.state.value || ''} /> dessa forma ele nunca ira setar um componente sem controle
-    handleChange(event){
-        this.setState({ valorEstado : event.target.value })
-    }
-
+    
     render(){
         return(
             <div>
-                <label> { this.state.valorEstado }</label> <br/>
-                <input onChange={this.handleChange} value={this.state.valorEstado || ''} />
+                <label> { this.props.value }</label> <br/>
+                <input  onChange={ this.handleChange } value={this.props.value || ''} />
             </div>
         )
     }
 }
 
-export default Field
+//Mapeia basicamente o estado para a props
+function mapStateToProps(state){
+    return {
+        value:state.field.value
+    }
+}
+
+export default connect(mapStateToProps)(Field)
