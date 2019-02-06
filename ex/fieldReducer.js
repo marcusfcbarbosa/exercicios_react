@@ -5,9 +5,8 @@ export default function(state = INITIAL_STATE, action ){
     //2- evoluir o estado do field
     switch(action.type){
         case 'VALUE_CHANGED':
-            state.value = action.payload
-            return state//dessa forma altero o estado
-            //return { value: action.payload }//isso sem alterar o estado atual
-        
+            return { value: action.payload }//isso sem alterar o estado atual
+        default:
+            return state //retorna o estado da forma que esta
     }
 }

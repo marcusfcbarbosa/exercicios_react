@@ -5,13 +5,13 @@ import { combineReducers, createStore } from 'redux'
 import { Provider } from 'react-redux'
 
 import Field from './field'
+import fieldReducer from './fieldReducer'
 
-//Conectado Redux com  React no ponto de vista dos atributos
-//dessa forma o state, do componente foi alterado pelo props, usando o método mapStateToProps
+
+//Esse combineReducers que ta controlando seu estado
 const reducers = combineReducers({
-    field:()=> ({ value: 'Conectado React com Redux'})
+    field: fieldReducer
 })
-
 
 ReactDOM.render(
     <Provider store={createStore(reducers)}>
